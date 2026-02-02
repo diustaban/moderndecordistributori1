@@ -1966,13 +1966,13 @@ ${itemsList}
       formData.append('items', itemsList);
       formData.append('total', total);
       formData.append('message', message);
-      formData.append('_to', 'kosyoivanov44@gmail.com');
+      formData.append('_to', 'moderndecor.sofia@gmail.com');
       formData.append('_subject', `Нова поръчка от клиентски номер: ${clientNumber}`);
       formData.append('_template', 'table');
       formData.append('_captcha', 'false'); // Изключване на капча за по-бързо изпращане
       
       // Изпращане чрез FormSubmit
-      fetch('https://formsubmit.co/ajax/kosyoivanov44@gmail.com', {
+      fetch('https://formsubmit.co/ajax/moderndecor.sofia@gmail.com', {
         method: 'POST',
         body: formData,
         headers: {
@@ -2019,7 +2019,7 @@ ${itemsList}
         // Показване на алтернативен метод (mailto)
         const mailtoSubject = encodeURIComponent(`Нова поръчка от клиентски номер: ${clientNumber}`);
         const mailtoBody = encodeURIComponent(message);
-        const mailtoLink = `mailto:kosyoivanov44@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+        const mailtoLink = `mailto:moderndecor.sofia@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
         
         const useMailto = confirm(
           "Възникна грешка при автоматично изпращане на поръчката.\n\n" +
