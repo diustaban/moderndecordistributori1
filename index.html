@@ -2908,23 +2908,61 @@ ${itemsList}
       ["78.07","80.09","82.15","84.27","86.44","88.66","90.95","93.30","95.70","98.17","100.71","103.31","105.98","108.73","111.54"],
       ["80.59","82.68","84.82","87.02","89.27","91.59","93.96","96.39","98.89","101.46","104.09","106.80","109.58","112.43","115.35"]
     ];
-    const korniziPriceList = [
-      { name: "Корниз алуминиев двуканален 200см", measure: "брой", euro: 9 },
-      { name: "Корниз алуминиев двуканален 250см", measure: "брой", euro: 11 },
-      { name: "Корниз алуминиев двуканален 300см", measure: "брой", euro: 13 },
-      { name: "Корниз алуминиев двуканален 350см", measure: "брой", euro: 15 },
-      { name: "Корниз алуминиев двуканален 400см", measure: "брой", euro: 18 },
-      { name: "Корниз алуминиев двуканален 600см", measure: "брой", euro: 26 },
-      { name: "Корниз алуминиев триканален 200см", measure: "брой", euro: 11.5 },
-      { name: "Корниз алуминиев триканален 250см", measure: "брой", euro: 14.5 },
-      { name: "Корниз алуминиев триканален 300см", measure: "брой", euro: 17 },
-      { name: "Корниз алуминиев триканален 350см", measure: "брой", euro: 20 },
-      { name: "Корниз алуминиев триканален 400см", measure: "брой", euro: 23 },
-      { name: "Корниз алуминиев триканален 600см", measure: "брой", euro: 35 },
-      { name: "Корниз алуминиев двуканален с чело 200см", measure: "брой", euro: 12 },
-      { name: "Корниз алуминиев двуканален с чело 250см", measure: "брой", euro: 15 },
-      { name: "Корниз алуминиев двуканален с чело 300см", measure: "брой", euro: 18 },
-      { name: "Корниз алуминиев двуканален с чело 350см", measure: "брой", euro: 20 }
+        const korniziPriceList = [
+      { name: "Корниз алуминиев двуканален 200см", measure: "брой", euro: 9.00 },
+      { name: "Корниз алуминиев двуканален 250см", measure: "брой", euro: 11.00 },
+      { name: "Корниз алуминиев двуканален 300см", measure: "брой", euro: 13.00 },
+      { name: "Корниз алуминиев двуканален 350см", measure: "брой", euro: 15.00 },
+      { name: "Корниз алуминиев двуканален 400см", measure: "брой", euro: 18.00 },
+      { name: "Корниз алуминиев двуканален 600см", measure: "брой", euro: 26.00 },
+      { name: "Корниз алуминиев триканален 200см", measure: "брой", euro: 11.50 },
+      { name: "Корниз алуминиев триканален 250см", measure: "брой", euro: 14.50 },
+      { name: "Корниз алуминиев триканален 300см", measure: "брой", euro: 17.00 },
+      { name: "Корниз алуминиев триканален 350см", measure: "брой", euro: 20.00 },
+      { name: "Корниз алуминиев триканален 400см", measure: "брой", euro: 23.00 },
+      { name: "Корниз алуминиев триканален 600см", measure: "брой", euro: 35.00 },
+      { name: "Корниз алуминиев двуканален с чело 200см", measure: "брой", euro: 12.00 },
+      { name: "Корниз алуминиев двуканален с чело 250см", measure: "брой", euro: 15.00 },
+      { name: "Корниз алуминиев двуканален с чело 300см", measure: "брой", euro: 18.00 },
+      { name: "Корниз алуминиев двуканален с чело 350см", measure: "брой", euro: 20.00 },
+      { name: "Корниз алуминиев двуканален с чело 400см", measure: "брой", euro: 24.00 },
+      { name: "Корниз алуминиев двуканален с чело 600см", measure: "брой", euro: 37.00 },
+      { name: "Корниз PVC двуканален 200см", measure: "брой", euro: 11.50 },
+      { name: "Корниз PVC двуканален 250см", measure: "брой", euro: 14.00 },
+      { name: "Корниз PVC двуканален 300см", measure: "брой", euro: 17.00 },
+      { name: "Корниз PVC двуканален 350см", measure: "брой", euro: 20.00 },
+      { name: "Корниз PVC двуканален 400см", measure: "брой", euro: 23.00 },
+      { name: "Корниз PVC двуканален 600см", measure: "брой", euro: 35.00 },
+      { name: "Корниз PVC триканален 200см", measure: "брой", euro: 14.00 },
+      { name: "Корниз PVC триканален 250см", measure: "брой", euro: 17.50 },
+      { name: "Корниз PVC триканален 300см", measure: "брой", euro: 21.00 },
+      { name: "Корниз PVC триканален 350см", measure: "брой", euro: 24.50 },
+      { name: "Корниз PVC триканален 400см", measure: "брой", euro: 28.00 },
+      { name: "Корниз PVC триканален 600см", measure: "брой", euro: 42.00 },
+      { name: "Корниз PVC двуканален с чело 200см", measure: "брой", euro: 14.00 },
+      { name: "Корниз PVC двуканален с чело 250см", measure: "брой", euro: 17.50 },
+      { name: "Корниз PVC двуканален с чело 300см", measure: "брой", euro: 21.00 },
+      { name: "Корниз PVC двуканален с чело 350см", measure: "брой", euro: 24.50 },
+      { name: "Корниз PVC двуканален с чело 400см", measure: "брой", euro: 28.00 },
+      { name: "Корниз PVC двуканален с чело 600см", measure: "брой", euro: 42.00 },
+      { name: "Аксесоар за корниз 2бр PVC стопер за алуминиев корниз", measure: "брой", euro: 0.70 },
+      { name: "Аксесоар за корниз PVC 90° ъгъл за двуканален корниз", measure: "брой", euro: 7.00 },
+      { name: "Аксесоар за корниз PVC 90° ъгъл за триканален корниз", measure: "брой", euro: 8.40 },
+      { name: "Аксесоар за корниз к-т крайни тапи за PVC двуканален корниз", measure: "брой", euro: 5.60 },
+      { name: "Аксесоар за корниз к-т крайни тапи за PVC триканален корниз", measure: "брой", euro: 7.00 },
+      { name: "Аксесоар за корниз к-т крайни тапи за PVC двуканален корниз с чело", measure: "брой", euro: 5.60 },
+      { name: "Аксесоар за корниз свръзка за PVC двуканален корниз", measure: "брой", euro: 2.80 },
+      { name: "Аксесоар за корниз свръзка за PVC триканален корниз", measure: "брой", euro: 3.50 },
+      { name: "Моторизиран корниз алуминиев едноканален с висящ мотор 0 - 350см", measure: "брой", euro: 224.00 },
+      { name: "Моторизиран корниз алуминиев едноканален с висящ мотор 351 - 600см", measure: "брой", euro: 245.00 },
+      { name: "Аксесоар за моторизиран корниз дистанционно за управление", measure: "брой", euro: 35.00 },
+      { name: "Моторизиран механизъм за перде щора с еднопосочно и разделно събиране 0-350см", measure: "брой", euro: 294.00 },
+      { name: "Моторизиран механизъм за перде щора само с разделно събиране 351-700см", measure: "брой", euro: 322.00 },
+      { name: "Аксесоар за моторизиран механизъм дистанционно за управление", measure: "брой", euro: 30.00 },
+      { name: "Моторизиран механизъм за роло / ден и нощ щора Ф47мм", measure: "брой", euro: 70.00 },
+      { name: "Моторизиран механизъм за роло / ден и нощ щора Ф65мм", measure: "брой", euro: 98.00 },
+      { name: "Моторизиран механизъм за плисе щора в рамка", measure: "брой", euro: 0, onRequest: true },
+      { name: "Моторизиран механизъм за плисе щора Г-образен/таванен монтаж", measure: "брой", euro: 0, onRequest: true }
     ];
     function roundUpTo10(num) {
       return num < 50 ? 50 : Math.ceil(num / 10) * 10;
@@ -2986,6 +3024,12 @@ ${itemsList}
       const w = roundUpTo10(width), h = roundUpTo10(height);
       const base = miniPriceTable[h]?.[w];
       if (!base) { res.style.display = "block"; res.style.background = "#fadbd8"; res.style.color = "#c0392b"; res.innerHTML = "Грешка в таблицата."; return; }
+      // #region agent log
+      (function(){
+        var raw = fabric, hasKey = Object.prototype.hasOwnProperty.call(miniFabricCoeff, raw), kVal = miniFabricCoeff[raw], keysSample = Object.keys(miniFabricCoeff).slice(0,5);
+        fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculateMini',message:'Mini fabric lookup',data:{fabric:raw,fabricLength:raw?raw.length:0,hasKey:hasKey,kType:typeof kVal,keysSample:keysSample},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H1-H2'})}).catch(function(){});
+      })();
+      // #endregion
       let k = miniFabricCoeff[fabric];
       if (!k) { res.style.display = "block"; res.style.background = "#fadbd8"; res.style.color = "#c0392b"; res.innerHTML = "Невалиден плат."; return; }
       if (color === 'brown') k *= 1.05;
@@ -3378,6 +3422,12 @@ ${itemsList}
         }
       }
       
+      // #region agent log
+      (function(){
+        var sk = seriesKey, keys = Object.keys(roletniSeries), hasKey = Object.prototype.hasOwnProperty.call(roletniSeries, sk);
+        fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculateRoletni',message:'Roletni series lookup',data:{seriesKey:sk,hasKey:hasKey,keysSample:keys.slice(0,8)},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H6-H7'})}).catch(function(){});
+      })();
+      // #endregion
       const series = roletniSeries[seriesKey];
       if (!series) {
         showCalcError(res, "Невалидна серия.");
@@ -3803,6 +3853,12 @@ ${itemsList}
       
       if (isDouble) {
         // Двойно плисе - изчисляваме цената за двата плата
+        // #region agent log
+        (function(){
+          var sk=seriesKey, tsk=thinSeriesKey, keys=Object.keys(pliseSeries), hasT=Object.prototype.hasOwnProperty.call(pliseSeries,sk), hasThin=tsk?Object.prototype.hasOwnProperty.call(pliseSeries,tsk):false;
+          fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculatePlise double',message:'Plise series lookup',data:{seriesKey:sk,thinSeriesKey:tsk,hasThick:hasT,hasThin:hasThin,keysSample:keys},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H4-H5'})}).catch(function(){});
+        })();
+        // #endregion
         const thickSeries = pliseSeries[seriesKey];
         const thinSeries = pliseSeries[thinSeriesKey];
         
@@ -3832,6 +3888,12 @@ ${itemsList}
         }
       } else {
         // Обикновено плисе
+        // #region agent log
+        (function(){
+          var sk=seriesKey, keys=Object.keys(pliseSeries), hasKey=Object.prototype.hasOwnProperty.call(pliseSeries,sk);
+          fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculatePlise single',message:'Plise series lookup',data:{seriesKey:sk,hasKey:hasKey,keysSample:keys},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H4-H5'})}).catch(function(){});
+        })();
+        // #endregion
         const series = pliseSeries[seriesKey];
         if (!series) {
           showCalcError(res, "Невалидна серия.");
@@ -5736,7 +5798,7 @@ ${itemsList}
       if (!table) return;
       let html = "<tr><th>Наименование</th><th>Мярка</th><th>Цена (€)</th><th>Бележки</th><th></th></tr>";
       korniziPriceList.forEach(function(row, i) {
-        const euroStr = typeof row.euro === "number" ? row.euro.toFixed(2) : row.euro;
+        const euroStr = row.onRequest ? "По запитване" : (typeof row.euro === "number" ? row.euro.toFixed(2) : row.euro);
         html += `<tr><td>${row.name}</td><td>${row.measure}</td><td>${euroStr}</td><td><input type="text" id="kornizi-notes-${i}" class="kornizi-notes-input" placeholder="Номер на плат / бележки"></td><td><button type="button" class="kornizi-add-btn" onclick="addKorniziRowToCart(${i})" title="Добави в кошницата">+</button></td></tr>`;
       });
       table.innerHTML = html;
@@ -5744,10 +5806,10 @@ ${itemsList}
     function addKorniziRowToCart(index) {
       const row = korniziPriceList[index];
       if (!row) return;
-      const price = typeof row.euro === "number" ? row.euro : parseFloat(String(row.euro).replace(",", "."));
+      const price = row.onRequest ? 0 : (typeof row.euro === "number" ? row.euro : parseFloat(String(row.euro).replace(",", ".")));
       const notesEl = document.getElementById("kornizi-notes-" + index);
       const notes = notesEl ? notesEl.value.trim() : "";
-      const details = { "Мярка": row.measure, "Цена": price.toFixed(2) + " €" };
+      const details = { "Мярка": row.measure, "Цена": row.onRequest ? "По запитване" : (price.toFixed(2) + " €") };
       if (notes) details["Бележки"] = notes;
       addToCart(row.name, price, details);
     }
