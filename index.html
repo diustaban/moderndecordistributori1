@@ -4070,7 +4070,10 @@ ${itemsList}
         return;
       }
       const normalizedKey = (seriesKey || "").toLowerCase();
-      const palette = perdeSeriesColors[normalizedKey];
+      let palette = perdeSeriesColors[normalizedKey];
+      if (!palette && normalizedKey === "mc" && typeof _perdePalette === "function") {
+        palette = _perdePalette("MC");
+      }
       
       swatchesWrap.innerHTML = "";
       selectedText.textContent = "Няма избран цвят";
@@ -4090,7 +4093,10 @@ ${itemsList}
       }
       picker.dataset.series = normalizedKey;
       picker.style.display = "block";
+      picker.style.visibility = "visible";
+      picker.style.opacity = "1";
       perdeColoringRequired = true;
+      try { picker.scrollIntoView({ behavior: "smooth", block: "nearest" }); } catch (e) {}
       
       palette.forEach(color => {
         const option = document.createElement("div");
@@ -4490,6 +4496,7 @@ ${itemsList}
       }
       if (typeof renderPerdeColorOptions === "function") renderPerdeColorOptions(seriesKey);
       var palette = perdeSeriesColors[seriesKey.toLowerCase()];
+      if (!palette && seriesKey.toLowerCase() === "mc" && typeof _perdePalette === "function") palette = _perdePalette("MC");
       perdeColoringRequired = !!(palette && palette.length > 0);
       const colorLabel = selectedPerdeColor ? `${selectedPerdeColor.code}${selectedPerdeColor.name ? ` (${selectedPerdeColor.name})` : ""}` : null;
       const colorLine = colorLabel ? `<div>Цвят: <span class="highlight">${colorLabel}</span></div>` : "";
