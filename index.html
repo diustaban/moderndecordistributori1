@@ -15,7 +15,7 @@
   button{width:100%;padding:16px;background:linear-gradient(135deg,#D4AF37,#F4D03F);color:#1A1A1A;font-weight:600;border:none;border-radius:10px;font-size:1.2rem;cursor:pointer;margin-top:15px;transition:transform .2s}
   button:hover{transform:translateY(-2px)}
   .error{color:#E63946;margin-top:12px;font-size:.95rem;display:none}
-  .content{width:100%;max-width:1350px;margin:30px auto;padding:20px 15px;display:flex;flex-direction:column;align-items:center;gap:45px}
+  .content{width:100%;max-width:1350px;margin:30px auto;padding:20px 90px 20px 15px;display:flex;flex-direction:column;align-items:center;gap:45px;box-sizing:border-box}
   .main-title{text-align:center;font-size:2rem;margin:0 0 20px 0;background:linear-gradient(90deg,#1A1A1A,#4A4A4A);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
     .dds{font-weight:600;color:#D4AF37;text-align:center;margin:0 0 40px 0;font-size:1.1rem}
     .accordion-list{display:flex;flex-direction:column;gap:30px;width:100%}
@@ -213,12 +213,12 @@
   .lameli-container{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:flex-end;min-height:180px;padding:20px;background:#F8F9FA;border-radius:8px}
   .lamela-item{background:transparent;border:2px solid #CED4DA;border-radius:6px;width:26px;height:150px;flex-shrink:0;transition:border-color .2s,transform .2s;cursor:pointer;position:relative}
   .lamela-item:hover{transform:translateY(-2px);border-color:#D4AF37}
-  .perde-color-picker{display:none;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:12px 16px;margin:16px auto 0 auto;text-align:center;width:fit-content;box-shadow:0 4px 14px rgba(0,0,0,.04)}
+  .perde-color-picker{display:none;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:12px 16px 12px 16px;margin:16px 0 0 0;margin-right:80px;text-align:center;max-width:calc(100% - 80px);width:100%;overflow:visible;box-shadow:0 4px 14px rgba(0,0,0,.04);box-sizing:border-box}
   .perde-color-title{font-weight:600;color:#1A1A1A;margin-bottom:6px;font-size:1rem}
-  .perde-color-swatches{display:grid;grid-template-rows:repeat(3,auto);grid-auto-flow:column;gap:10px;justify-items:center;align-items:center;width:fit-content;margin:0 auto}
-  .perde-color-option{display:flex;align-items:center;justify-content:center}
-  .perde-color-swatch{width:70px;height:32px;border-radius:6px;border:1px solid rgba(0,0,0,.15);cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8),0 -1px 1px rgba(0,0,0,.5)}
-  .perde-color-swatch[data-code="BR-01"],.perde-color-swatch[data-code="BR-02"]{color:#1A1A1A;text-shadow:0 1px 2px rgba(255,255,255,.9),0 -1px 2px rgba(0,0,0,.3)}
+  .perde-color-swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,46px));grid-auto-rows:auto;gap:4px;justify-content:start;justify-items:center;align-items:center;width:100%;margin:0 auto;min-height:0;max-width:100%;padding:0 12px 0 0;box-sizing:border-box;overflow:visible}
+  .perde-color-option{display:flex;align-items:center;justify-content:center;min-width:0;overflow:visible}
+  .perde-color-swatch{width:46px;min-width:46px;height:20px;border-radius:3px;border:1px solid rgba(0,0,0,.15);cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;display:flex;align-items:center;justify-content:center;font-size:.45rem;font-weight:600;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.8),0 -1px 1px rgba(0,0,0,.5);box-sizing:border-box;overflow:visible;flex-shrink:0}
+  .perde-color-swatch[data-code="BR-01"],.perde-color-swatch[data-code="BR-02"],.perde-color-swatch[data-code="DT-01"],.perde-color-swatch[data-code="DT-02"],.perde-color-swatch[data-code="ND-01"],.perde-color-swatch[data-code="ND-02"],.perde-color-swatch[data-code="DJ-I-01"],.perde-color-swatch[data-code="DJ-I-02"],.perde-color-swatch[data-code="DJ-I-03"],.perde-color-swatch[data-code="DJ-E-01"],.perde-color-swatch[data-code="DJ-E-02"],.perde-color-swatch[data-code="DJ-E-03"],.perde-color-swatch[data-code="DJ-D-01"],.perde-color-swatch[data-code="DJ-D-02"],.perde-color-swatch[data-code="DJ-D-03"],.perde-color-swatch[data-code="SM-01"],.perde-color-swatch[data-code="SM-02"],.perde-color-swatch[data-code="SM-03"],.perde-color-swatch[data-code="SM-04"],.perde-color-swatch[data-code="SM-05"],.perde-color-swatch[data-code="SM-07"],.perde-color-swatch[data-code="SM-09"],.perde-color-swatch[data-code="SM-10"],.perde-color-swatch[data-code="SM-16"],.perde-color-swatch[data-code="SM-17"],.perde-color-swatch[data-code="SM-20"],.perde-color-swatch[data-code="SM-22"],.perde-color-swatch[data-code="SM-27"],.perde-color-swatch[data-code="SMF-01"],.perde-color-swatch[data-code="SMF-02"],.perde-color-swatch[data-code="SMF-03"],.perde-color-swatch[data-code="SMF-07"],.perde-color-swatch[data-code="SMF-08"],.perde-color-swatch[data-code="SMF-09"],.perde-color-swatch[data-code="SMF-10"],.perde-color-swatch[data-code="SMF-11"],.perde-color-swatch[data-code="SMF-12"],.perde-color-swatch[data-code="SMF-14"],.perde-color-swatch[data-code="SMF-16"],.perde-color-swatch[data-code="SMF-17"],.perde-color-swatch[data-code="JP-01"],.perde-color-swatch[data-code="JP-02"]{color:#1A1A1A;text-shadow:0 1px 2px rgba(255,255,255,.9),0 -1px 2px rgba(0,0,0,.3)}
   .perde-color-swatch.active{border-color:#D4AF37;box-shadow:0 0 0 2px rgba(212,175,55,.25);transform:translateY(-1px)}
   .perde-color-selected{margin-top:6px;font-size:.9rem;color:#666;text-align:center}
   .perde-color-actions{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:10px}
@@ -1498,7 +1498,9 @@
               <option value="" disabled selected>Изберете серия...</option>
               <option value="dt">DT</option>
               <option value="nd">ND</option>
-              <option value="dj">DJ</option>
+              <option value="dj-i">DJ-I</option>
+              <option value="dj-e">DJ-E</option>
+              <option value="dj-d">DJ-D</option>
               <option value="sm">SM</option>
               <option value="br">BR</option>
               <option value="mc">MC (тесни платове)</option>
@@ -2498,7 +2500,9 @@ ${itemsList}
     const perdeSeries = {
       dt: { price: 20.50, label: "DT" },
       nd: { price: 21.00, label: "ND" },
-      dj: { price: 21.00, label: "DJ" },
+      "dj-i": { price: 21.00, label: "DJ-I" },
+      "dj-e": { price: 21.00, label: "DJ-E" },
+      "dj-d": { price: 21.00, label: "DJ-D" },
       sm: { price: 21.00, label: "SM" },
       br: { price: 21.00, label: "BR" },
       mc: { price: 23.50, label: "MC (тесни платове)" },
@@ -2510,14 +2514,111 @@ ${itemsList}
     const perdeSeriesDist = {
       dt: { price: 20.50, label: "DT" },
       nd: { price: 21.00, label: "ND" },
-      dj: { price: 21.00, label: "DJ" },
+      "dj-i": { price: 21.00, label: "DJ-I" },
+      "dj-e": { price: 21.00, label: "DJ-E" },
+      "dj-d": { price: 21.00, label: "DJ-D" },
       sm: { price: 21.00, label: "SM" },
       br: { price: 21.00, label: "BR" },
       mc: { price: 23.50, label: "MC (тесни платове)" },
       smf: { price: 24.00, label: "SMF" },
       jp: { price: 33.50, label: "JP VERDUO (цв.печат)" }
     };
+    const _perdeColorHex = ["#FDFDFD","#F2F1EE","#ECEBD8","#D6D4C4","#C4CBB8","#CCC89D","#A89B7A","#A89389","#939486","#9E9280","#5B3C3C","#B7BDC1","#BFB7C1","#8A8F90","#696969","#858890","#54565B","#303135","#1F2024","#161616","#DFCBDA","#DCA6CE","#5F1A4D","#BEA801","#A59730","#FA832F","#D6EFE9","#5C8952","#43653B","#058AA4","#024F5F","#6B0E0E"];
+    function _perdePalette(prefix) {
+      return _perdeColorHex.map(function(hex, i) { var n = String(i + 1).padStart(2, "0"); return { code: prefix + "-" + n, name: "", color: hex }; });
+    }
+    const _djPaletteHex = ["#F9F9F7","#EBE6E1","#EEDDD6","#B2A8A2","#8C7769","#6A4E3F","#A3A4A3","#C6A44A","#6F3A6F","#AE97A5","#C6B2C0","#6495ED","#3B67B0","#57636D","#3D3332"];
+    function _djPalette(prefix) {
+      return _djPaletteHex.map(function(hex, i) { var n = String(i + 1).padStart(2, "0"); return { code: prefix + "-" + n, name: "", color: hex }; });
+    }
+    const _smPaletteHex = ["#FAFAFA","#FFF8DC","#E0E0E0","#FAFAFA","#FAFAFA","#1E0A1E","#FAFAFA","#E8B4B8","#FAFAFA","#FAFAFA","#191970","#5C4033","#FF8C00","#FFD700","#556B2F","#FAFAFA","#FAFAFA","#D2B48C","#000000","#FAFAFA","#2F4F4F","#FAFAFA","#87CEEB","#E6A8D7","#808080","#B8B8E0","#FAFAFA"];
+    function _smPalette(prefix) {
+      return _smPaletteHex.map(function(hex, i) { var n = String(i + 1).padStart(2, "0"); return { code: prefix + "-" + n, name: "", color: hex }; });
+    }
+    const _smfPaletteHex = ["#F0F0F0","#B8B8B8","#E8D4C4","#5C4033","#2F4F4F","#787878","#FFFFFF","#FFF8DC","#BDB86B","#FFFFFF","#B0B0B0","#D2B48C","#8B7355","#FFFFFF","#1A2E1A","#F5E6F0","#E8C4D8","#9370DB","#4A3A4A","#B87070","#FFD700","#FF8C00","#1E90FF","#20B2AA","#556B2F","#228B22","#3D4A3D","#DC143C","#6B0E0E","#000000"];
+    function _smfPalette(prefix) {
+      return _smfPaletteHex.map(function(hex, i) { var n = String(i + 1).padStart(2, "0"); return { code: prefix + "-" + n, name: "", color: hex }; });
+    }
     const perdeSeriesColors = {
+      dt: [
+        { code: "DT-01", name: "", color: "#FFFFFF" },
+        { code: "DT-02", name: "", color: "#FFFBF0" },
+        { code: "DT-03", name: "", color: "#3D2E1F" },
+        { code: "DT-04", name: "", color: "#F0E0EC" },
+        { code: "DT-05", name: "", color: "#FF8C00" },
+        { code: "DT-06", name: "", color: "#000000" },
+        { code: "DT-07", name: "", color: "#F5F0E0" },
+        { code: "DT-08", name: "", color: "#D4E8B0" },
+        { code: "DT-09", name: "", color: "#8B6914" },
+        { code: "DT-10", name: "", color: "#B8860B" },
+        { code: "DT-11", name: "", color: "#87CEEB" },
+        { code: "DT-12", name: "", color: "#6A5ACD" },
+        { code: "DT-13", name: "", color: "#FFFACD" },
+        { code: "DT-14", name: "", color: "#FFD700" },
+        { code: "DT-15", name: "", color: "#E8A317" },
+        { code: "DT-16", name: "", color: "#CD5C5C" },
+        { code: "DT-17", name: "", color: "#FFE4EC" },
+        { code: "DT-18", name: "", color: "#E8A0B0" },
+        { code: "DT-19", name: "", color: "#8B008B" },
+        { code: "DT-20", name: "", color: "#4A0A4A" },
+        { code: "DT-21", name: "", color: "#B8A0C8" },
+        { code: "DT-22", name: "", color: "#E0F7FA" },
+        { code: "DT-23", name: "", color: "#B0C4DE" },
+        { code: "DT-24", name: "", color: "#3D4A2E" },
+        { code: "DT-25", name: "", color: "#6B7A4A" },
+        { code: "DT-26", name: "", color: "#228B22" },
+        { code: "DT-27", name: "", color: "#20B2AA" },
+        { code: "DT-28", name: "", color: "#40E0D0" },
+        { code: "DT-29", name: "", color: "#48D1CC" },
+        { code: "DT-30", name: "", color: "#2F4F4F" },
+        { code: "DT-31", name: "", color: "#191970" },
+        { code: "DT-32", name: "", color: "#800020" },
+        { code: "DT-33", name: "", color: "#FFFFFF" },
+        { code: "DT-34", name: "", color: "#C8B896" },
+        { code: "DT-35", name: "", color: "#C8C0D8" },
+        { code: "DT-36", name: "", color: "#2E1A0A" },
+        { code: "DT-37", name: "", color: "#4A5568" },
+        { code: "DT-38", name: "", color: "#2D3748" },
+        { code: "DT-39", name: "", color: "#5C4033" },
+        { code: "DT-40", name: "", color: "#E8E4E0" },
+        { code: "DT-41", name: "", color: "#A0A0A0" },
+        { code: "DT-42", name: "", color: "#708090" },
+        { code: "DT-43", name: "", color: "#F5F5F5" }
+      ],
+      nd: [
+        { code: "ND-01", name: "", color: "#FAFAF9" },
+        { code: "ND-02", name: "", color: "#FFF8E0" },
+        { code: "ND-03", name: "", color: "#E8E4F0" },
+        { code: "ND-04", name: "", color: "#7A7685" },
+        { code: "ND-05", name: "", color: "#4A4A38" },
+        { code: "ND-06", name: "", color: "#E0E0E0" },
+        { code: "ND-07", name: "", color: "#D4A800" },
+        { code: "ND-08", name: "", color: "#FFFFFF" },
+        { code: "ND-09", name: "", color: "#E8E0EC" },
+        { code: "ND-10", name: "", color: "#FFFFFF" },
+        { code: "ND-11", name: "", color: "#5A8B7A" },
+        { code: "ND-12", name: "", color: "#1A2F4A" },
+        { code: "ND-13", name: "", color: "#000000" },
+        { code: "ND-14", name: "", color: "#D4C4A8" },
+        { code: "ND-15", name: "", color: "#D0B898" },
+        { code: "ND-16", name: "", color: "#B8864A" },
+        { code: "ND-17", name: "", color: "#B0B0B0" },
+        { code: "ND-18", name: "", color: "#2C2C2C" },
+        { code: "ND-19", name: "", color: "#A00A2E" },
+        { code: "ND-20", name: "", color: "#FF6600" },
+        { code: "ND-21", name: "", color: "#8FBC00" },
+        { code: "ND-22", name: "", color: "#2D5016" },
+        { code: "ND-23", name: "", color: "#1E3A5F" },
+        { code: "ND-24", name: "", color: "#6B0E0E" },
+        { code: "ND-25", name: "", color: "#707070" },
+        { code: "ND-26", name: "", color: "#FFFFFF" }
+      ],
+      "dj-i": _djPalette("DJ-I"),
+      "dj-e": _djPalette("DJ-E"),
+      "dj-d": _djPalette("DJ-D"),
+      sm: _smPalette("SM"),
+      smf: _smfPalette("SMF"),
+      jp: _perdePalette("JP"),
       br: [
         { code: "BR-01", name: "", color: "#FDFDFD" },
         { code: "BR-02", name: "", color: "#F2F1EE" },
@@ -2748,11 +2849,13 @@ ${itemsList}
       if (!table) return;
       
       const series = getPerdeSeries();
-      const seriesOrder = ["dt", "nd", "dj", "sm", "br", "mc", "smf", "jp"];
+      const seriesOrder = ["dt", "nd", "dj-i", "dj-e", "dj-d", "sm", "br", "mc", "smf", "jp"];
       const deadlines = {
         dt: "7-10 р.дни",
         nd: "7-10 р.дни",
-        dj: "7-10 р.дни",
+        "dj-i": "7-10 р.дни",
+        "dj-e": "7-10 р.дни",
+        "dj-d": "7-10 р.дни",
         sm: "7-10 р.дни",
         br: "7-10 р.дни",
         mc: "7-10 р.дни",
@@ -4384,6 +4487,8 @@ ${itemsList}
         showCalcError(res, "Невалидна серия.");
         return;
       }
+      var palette = perdeSeriesColors[seriesKey.toLowerCase()];
+      perdeColoringRequired = !!(palette && palette.length > 0);
       const colorLabel = selectedPerdeColor ? `${selectedPerdeColor.code}${selectedPerdeColor.name ? ` (${selectedPerdeColor.name})` : ""}` : null;
       const colorLine = colorLabel ? `<div>Цвят: <span class="highlight">${colorLabel}</span></div>` : "";
       const area = (width / 100) * (height / 100);
@@ -5737,6 +5842,10 @@ ${itemsList}
       const isOpen = content.classList.contains("open");
       document.querySelectorAll(".accordion-content").forEach(c => c.classList.remove("open"));
       if (!isOpen) content.classList.add("open");
+      if (!isOpen && header && header.textContent && header.textContent.indexOf("Перде") !== -1) {
+        var sel = document.getElementById("perde-series");
+        if (sel && typeof renderPerdeColorOptions === "function") renderPerdeColorOptions(sel.value || "");
+      }
     }
     function login() {
       const user = document.getElementById("username").value.trim().toLowerCase();
@@ -5751,6 +5860,8 @@ ${itemsList}
         priceList.style.gap = "30px";
         initTables();
         updatePerdePriceTable(); // Актуализира таблицата с цени за Перде-Щора
+        var perdeSel = document.getElementById("perde-series");
+        if (perdeSel && typeof renderPerdeColorOptions === "function") renderPerdeColorOptions(perdeSel.value || "");
         updateRoletniPriceTable();
         updateDayNightPriceTable();
         updateDoubleRoloPriceTable();
