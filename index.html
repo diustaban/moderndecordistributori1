@@ -4488,6 +4488,7 @@ ${itemsList}
         showCalcError(res, "Невалидна серия.");
         return;
       }
+      if (typeof renderPerdeColorOptions === "function") renderPerdeColorOptions(seriesKey);
       var palette = perdeSeriesColors[seriesKey.toLowerCase()];
       perdeColoringRequired = !!(palette && palette.length > 0);
       const colorLabel = selectedPerdeColor ? `${selectedPerdeColor.code}${selectedPerdeColor.name ? ` (${selectedPerdeColor.name})` : ""}` : null;
