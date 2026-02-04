@@ -2145,6 +2145,29 @@ ${itemsList}
       "CS Screen": 1.5,
       "Blackout Screen": 1.6
     };
+    const miniFabricCoeffByColor = {
+      "Yildiz": { white: 1, brown: 1, anthracite: 1, golden_oak: 1, walnut: 1 },
+      "Panama": { white: 1.2, brown: 1.2, anthracite: 1.2, golden_oak: 1.2, walnut: 1.2 },
+      "Panama Pearl*": { white: 1.2, brown: 1.2, anthracite: 1.2, golden_oak: 1.2, walnut: 1.2 },
+      "Yildiz Sedef": { white: 1.2, brown: 1.2, anthracite: 1.2, golden_oak: 1.2, walnut: 1.2 },
+      "Line Harmony": { white: 1.2, brown: 1.2, anthracite: 1.2, golden_oak: 1.2, walnut: 1.2 },
+      "Mat Linen": { white: 1.2, brown: 1.2, anthracite: 1.2, golden_oak: 1.2, walnut: 1.2 },
+      "Yildiz Blackout": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Yildiz Blackout Sedef": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Focus Blackout": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Focus Sedef Blackout": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Monaco Blackout": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Lugano Blackout": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Pes Screen": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "YS Screen": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Glarus": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Uster": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Lancy": { white: 1.3, brown: 1.35, anthracite: 1.35, golden_oak: 1.6, walnut: 1.6 },
+      "Basel Blackout": { white: 1.4, brown: 1.45, anthracite: 1.45, golden_oak: 1.7, walnut: 1.7 },
+      "KS Screen": { white: 1.4, brown: 1.45, anthracite: 1.45, golden_oak: 1.7, walnut: 1.7 },
+      "CS Screen": { white: 1.4, brown: 1.45, anthracite: 1.45, golden_oak: 1.7, walnut: 1.7 },
+      "Blackout Screen": { white: 1.5, brown: 1.55, anthracite: 1.55, golden_oak: 1.8, walnut: 1.8 }
+    };
     const dnPriceTable = {
       50: {50:14,60:15,70:17,80:18,90:19,100:21,110:22,120:23,130:25,140:26,150:27},
       60: {50:14,60:16,70:17,80:18,90:20,100:21,110:23,120:24,130:26,140:27,150:28},
@@ -2415,7 +2438,9 @@ ${itemsList}
       blackout_screen: { price: 29.50, label: "BLACKOUT SCREEN" },
       focus_blackout_ser: { price: 15.50, label: "FOCUS BLACKOUT SER." },
       focus_sedef_blackout_ser: { price: 17.50, label: "FOCUS SEDEF BLACKOUT SER." },
+      glarus: { price: 13.00, label: "GLARUS" },
       line_harmony: { price: 13.00, label: "LINE HARMONY" },
+      lancy: { price: 13.00, label: "LANCY" },
       lugano_blackout: { price: 19.00, label: "LUGANO BLACKOUT" },
       mat_linen: { price: 13.00, label: "MAT LINEN" },
       monaco_blackout: { price: 19.00, label: "MONACO BLACKOUT" },
@@ -2423,6 +2448,9 @@ ${itemsList}
       panama_ser: { price: 11.50, label: "PANAMA SER." },
       pes_screen: { price: 18.50, label: "PES SCREEN" },
       sun_screen_orj: { price: 29.00, label: "SUN SCREEN ORJ." },
+      uster_blackout: { price: 19.00, label: "USTER BLACKOUT" },
+      ks_screen: { price: 20.50, label: "KS SCREEN" },
+      cs_screen: { price: 20.50, label: "CS SCREEN" },
       yildiz_blackout_sedef_ser: { price: 16.50, label: "YILDIZ BLACKOUT SEDEF SER." },
       yildiz_blackout_ser: { price: 15.50, label: "YILDIZ BLACKOUT SER." },
       yildiz_sedef_ser: { price: 11.50, label: "YILDIZ SEDEF SER." },
@@ -2511,20 +2539,28 @@ ${itemsList}
                 const perdeSeries = {
       "dt": { price: 35.00, label: "DT" },
       "nd": { price: 35.00, label: "ND" },
+      "dj-i": { price: 35.00, label: "DJ-I" },
+      "dj-e": { price: 35.00, label: "DJ-E" },
+      "dj-d": { price: 35.00, label: "DJ-D" },
       "sm": { price: 35.00, label: "SM" },
       "br": { price: 45.00, label: "JP/Brilliant (цв.печат)" },
       "mc": { price: 40.00, label: "MC (тесни платове)" },
-      "smf": { price: 40.00, label: "SMF" }
+      "smf": { price: 40.00, label: "SMF" },
+      "jp": { price: 45.00, label: "JP VERDUO (цв.печат)" }
     };
     
     // Цени за потребител "dist" (2026)
                 const perdeSeriesDist = {
       "dt": { price: 35.00, label: "DT" },
       "nd": { price: 35.00, label: "ND" },
+      "dj-i": { price: 35.00, label: "DJ-I" },
+      "dj-e": { price: 35.00, label: "DJ-E" },
+      "dj-d": { price: 35.00, label: "DJ-D" },
       "sm": { price: 35.00, label: "SM" },
       "br": { price: 45.00, label: "JP/Brilliant (цв.печат)" },
       "mc": { price: 40.00, label: "MC (тесни платове)" },
-      "smf": { price: 40.00, label: "SMF" }
+      "smf": { price: 40.00, label: "SMF" },
+      "jp": { price: 45.00, label: "JP VERDUO (цв.печат)" }
     };
     const _perdeColorHex = ["#FDFDFD","#F2F1EE","#ECEBD8","#D6D4C4","#C4CBB8","#CCC89D","#A89B7A","#A89389","#939486","#9E9280","#5B3C3C","#B7BDC1","#BFB7C1","#8A8F90","#696969","#858890","#54565B","#303135","#1F2024","#161616","#DFCBDA","#DCA6CE","#5F1A4D","#BEA801","#A59730","#FA832F","#D6EFE9","#5C8952","#43653B","#058AA4","#024F5F","#6B0E0E"];
     function _perdePalette(prefix) {
@@ -3137,9 +3173,14 @@ ${itemsList}
         fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculateMini',message:'Mini fabric lookup',data:{fabric:raw,fabricLength:raw?raw.length:0,hasKey:hasKey,kType:typeof kVal,keysSample:keysSample},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H1-H2'})}).catch(function(){});
       })();
       // #endregion
-      let k = miniFabricCoeff[fabric];
-      if (!k) { res.style.display = "block"; res.style.background = "#fadbd8"; res.style.color = "#c0392b"; res.innerHTML = "Невалиден плат."; return; }
-      if (color === 'brown') k *= 1.05;
+      let k;
+      if (miniFabricCoeffByColor[fabric]) {
+        k = miniFabricCoeffByColor[fabric][color];
+        if (k == null) k = miniFabricCoeffByColor[fabric].white;
+      } else {
+        k = miniFabricCoeff[fabric];
+      }
+      if (k == null || k === undefined) { res.style.display = "block"; res.style.background = "#fadbd8"; res.style.color = "#c0392b"; res.innerHTML = "Невалиден плат."; return; }
       const final = base * k;
       const platName = fabric;
       const controlLabel = control === "left" ? "Ляво" : "Дясно";
@@ -3535,7 +3576,15 @@ ${itemsList}
         fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculateRoletni',message:'Roletni series lookup',data:{seriesKey:sk,hasKey:hasKey,keysSample:keys.slice(0,8)},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H6-H7'})}).catch(function(){});
       })();
       // #endregion
-      const series = roletniSeries[seriesKey];
+      // Мапване от стойности в dropdown към ключове в roletniSeries
+      const roletniOptionToKey = {
+        yildiz_m: "yildiz_ser", yildiz_color: "yildiz_ser", yildiz_sedef: "yildiz_sedef_ser",
+        yildiz_blackout: "yildiz_blackout_ser", yildiz_blackout_sedef: "yildiz_blackout_sedef_ser",
+        panama: "panama_ser", focus_blackout: "focus_blackout_ser", focus_sedef_blackout: "focus_sedef_blackout_ser",
+        ys_screen: "ys_screen_blackout"
+      };
+      const resolvedKey = roletniOptionToKey[seriesKey] || seriesKey;
+      const series = roletniSeries[resolvedKey];
       if (!series) {
         showCalcError(res, "Невалидна серия.");
         return;
@@ -3647,7 +3696,18 @@ ${itemsList}
         }
       }
       
-      const series = dayNightSeries[seriesKey];
+      // Мапване от стойности в dropdown към ключове в dayNightSeries
+      const dayNightOptionToKey = {
+        eco: "eco_series", modern: "modern_d_cor_series", charm_ge: "charm_ge_series", charm_gk: "charm_gk_series", charm_as: "charm_as_series",
+        eden: "eden_seri_si", imagine: "imagine_seri_si", smart: "smart_seri_si", st_gallen: "st_gallen", montaro: "montaro_series",
+        bamboo_curtain: "bamboo_bc_series", passion: "passion_seri_si", baskili_duz: "bsk_zebra_d_z", arbon: "arbon", kugel: "kugel",
+        urban: "urban_series", rare: "rare_series", keten_craft: "keten_crarft_series", new_wave: "new_wave_series", pearl: "pearl_seri_si",
+        raw: "raw_series", naturel: "naturel_series", tiffany: "tiffany_series", pirilti: "pirilti_series", versa: "versa", best: "best_series",
+        blackout: "blackout_series", pelmo: "pelmo", nordend: "nordend", baskili_td: "bsk_zebra_td_seri_si", baskili_pls: "bsk_zebra_pls_seri_si",
+        biel_blackout: "biel_blackout", keten_baskili_pls: "keten_baskili_pls_serisi", bonn_blackout: "bonn_blackout", silhouette: "bern_series"
+      };
+      const resolvedDnKey = dayNightOptionToKey[seriesKey] || seriesKey;
+      const series = dayNightSeries[resolvedDnKey];
       if (!series) {
         showCalcError(res, "Невалидна серия.");
         return;
@@ -3775,8 +3835,15 @@ ${itemsList}
         area = 2; // Минимум 2 кв.м
       }
       
-      // Изчисляване на цената на м² за заден плат (от roletniSeries, като на роло щори-таван)
-      const backSeries = roletniSeries[backFabric];
+      // Мапване от стойности в dropdown към ключове в roletniSeries (същото като при роло щори-таван)
+      const roletniOptionToKey = {
+        yildiz_m: "yildiz_ser", yildiz_color: "yildiz_ser", yildiz_sedef: "yildiz_sedef_ser",
+        yildiz_blackout: "yildiz_blackout_ser", yildiz_blackout_sedef: "yildiz_blackout_sedef_ser",
+        panama: "panama_ser", focus_blackout: "focus_blackout_ser", focus_sedef_blackout: "focus_sedef_blackout_ser",
+        ys_screen: "ys_screen_blackout"
+      };
+      const resolvedBackKey = roletniOptionToKey[backFabric] || backFabric;
+      const backSeries = roletniSeries[resolvedBackKey];
       if (!backSeries) {
         showCalcError(res, "Невалиден заден плат.");
         return;
@@ -3784,8 +3851,10 @@ ${itemsList}
       // Цена на м² за заден плат (директно от roletniSeries)
       const priceBackPerM2 = backSeries.price;
       
-      // Изчисляване на цената на м² за прозрачен плат (от doubleRoloSeries)
-      const transparentSeries = doubleRoloSeries[transparentFabric];
+      // Мапване от стойности в dropdown към ключове в doubleRoloSeries
+      const doubleRoloOptionToKey = { yo: "yo_ser", rte: "rte_ser", kl: "kl_ser", yt: "yt_ser", beauty: "beauty_ser", elite: "elite_ser", st: "st_ser", linda: "li_nda_ser" };
+      const resolvedTransparentKey = doubleRoloOptionToKey[transparentFabric] || transparentFabric;
+      const transparentSeries = doubleRoloSeries[resolvedTransparentKey];
       if (!transparentSeries) {
         showCalcError(res, "Невалиден прозрачен плат.");
         return;
@@ -3958,16 +4027,21 @@ ${itemsList}
       let content = `<div>Размери: ${formatDimension(widthIn)}×${formatDimension(heightIn)} см</div>`;
       content += `<div>Квадратура: ${areaRaw.toFixed(4)} м² → <strong>${area.toFixed(1)} м²</strong></div>`;
       
+      // Мапване от стойности в dropdown (lowercase) към ключове в pliseSeries (UPPERCASE; honeycomb -> HONEYCOM)
+      const pliseOptionToKey = function(v) { if (!v) return v; if (v === "honeycomb") return "HONEYCOM"; return v.toUpperCase(); };
+      const resolvedPliseKey = pliseOptionToKey(seriesKey);
+      const resolvedThinKey = thinSeriesKey ? pliseOptionToKey(thinSeriesKey) : null;
+      
       if (isDouble) {
         // Двойно плисе - изчисляваме цената за двата плата
         // #region agent log
         (function(){
-          var sk=seriesKey, tsk=thinSeriesKey, keys=Object.keys(pliseSeries), hasT=Object.prototype.hasOwnProperty.call(pliseSeries,sk), hasThin=tsk?Object.prototype.hasOwnProperty.call(pliseSeries,tsk):false;
+          var sk=resolvedPliseKey, tsk=resolvedThinKey, keys=Object.keys(pliseSeries), hasT=Object.prototype.hasOwnProperty.call(pliseSeries,sk), hasThin=tsk?Object.prototype.hasOwnProperty.call(pliseSeries,tsk):false;
           fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculatePlise double',message:'Plise series lookup',data:{seriesKey:sk,thinSeriesKey:tsk,hasThick:hasT,hasThin:hasThin,keysSample:keys},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H4-H5'})}).catch(function(){});
         })();
         // #endregion
-        const thickSeries = pliseSeries[seriesKey];
-        const thinSeries = pliseSeries[thinSeriesKey];
+        const thickSeries = pliseSeries[resolvedPliseKey];
+        const thinSeries = pliseSeries[resolvedThinKey];
         
         if (!thickSeries || !thinSeries) {
           showCalcError(res, "Невалидна серия.");
@@ -4001,7 +4075,7 @@ ${itemsList}
           fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculatePlise single',message:'Plise series lookup',data:{seriesKey:sk,hasKey:hasKey,keysSample:keys},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H4-H5'})}).catch(function(){});
         })();
         // #endregion
-        const series = pliseSeries[seriesKey];
+        const series = pliseSeries[resolvedPliseKey];
         if (!series) {
           showCalcError(res, "Невалидна серия.");
           return;
