@@ -442,6 +442,7 @@
               <span class="order-total-amount" id="orderTotal">0.00 €</span>
             </div>
             <button type="submit" class="order-submit-btn" id="orderSubmitBtn">Изпрати поръчка</button>
+            <p style="margin-top:10px;font-size:0.85rem;color:#666;">При първо изпращане проверете пощата <strong>moderndecor.office@gmail.bg</strong> и кликнете линка за потвърждение от FormSubmit – след това поръчките ще пристигат нормално.</p>
           </form>
         </div>
         <div class="order-success" id="orderSuccess">
@@ -1700,6 +1701,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script>
+    // ========== ИМЕЙЛ ПОРЪЧКИ: поставете Web3Forms ключа на реда по-долу (търсете WEB3FORMS_ACCESS_KEY) ==========
+    // 1. Отидете на https://web3forms.com 2. Въведете moderndecor.office@gmail.bg 3. Копирайте access key от имейла 4. Поставете между кавичките
     // Cart functionality
     let cart = [];
     
@@ -1848,6 +1851,9 @@
       }, 10);
     }
     
+    // ПОСТАВЕТЕ КЛЮЧА ТУК (между кавичките) след като го вземете от https://web3forms.com за moderndecor.office@gmail.bg
+    var WEB3FORMS_ACCESS_KEY = '85b19a4d-bf80-432d-8397-38e5f80469b7';
+    
     function checkout() {
       if (cart.length === 0) {
         alert("Кошницата е празна!");
@@ -1930,6 +1936,30 @@
       submitBtn.disabled = true;
       submitBtn.textContent = "Изпращане...";
       
+      // Ако страницата е отворена като файл (file://), изпращането често се блокира от браузъра
+      if (window.location.protocol === "file:") {
+        const openMailto = confirm(
+          "Страницата е отворена като локален файл и изпращането може да не работи.\n\n" +
+          "Отворете сайта от сървър/интернет (напр. качете out_index.html на хостинг) или използвайте „Да“ за изпращане чрез вашия имейл клиент."
+        );
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Изпрати поръчка";
+        if (openMailto) {
+          const clientNumber = document.getElementById("orderClientNumber").value;
+          const address = document.getElementById("orderAddress").value || "Не е посочен";
+          const notes = document.getElementById("orderNotes").value || "Няма";
+          const itemsList = cart.map(item => {
+            const itemTotal = item.price * item.quantity;
+            const details = Object.keys(item.details).length > 0 ? Object.entries(item.details).map(([k,v]) => k + ": " + v).join("; ") : "Няма";
+            return item.name + " x " + item.quantity + " (" + item.price.toFixed(2) + " €) = " + itemTotal.toFixed(2) + " €\nДетайли: " + details;
+          }).join("\n\n");
+          const total = cart.reduce((s, i) => s + i.price * i.quantity, 0).toFixed(2);
+          const message = "Нова поръчка от клиентски номер: " + clientNumber + "\n\nКлиентски номер: " + clientNumber + "\nАдрес: " + address + "\n\nАртикули:\n" + itemsList + "\n\nОбща сума: " + total + " €\n\nБележки: " + notes;
+          window.location.href = "mailto:moderndecor.office@gmail.bg?subject=" + encodeURIComponent("Нова поръчка: " + clientNumber) + "&body=" + encodeURIComponent(message);
+        }
+        return;
+      }
+      
       // Събиране на данните от формата
       const clientNumber = document.getElementById("orderClientNumber").value;
       const address = document.getElementById("orderAddress").value || "Не е посочен";
@@ -1960,93 +1990,78 @@ ${itemsList}
 
 Бележки: ${notes}`;
       
-      // Използване на FormSubmit (безплатен, неограничен)
-      const formData = new FormData();
-      formData.append('clientNumber', clientNumber);
-      formData.append('address', address);
-      formData.append('notes', notes);
-      formData.append('items', itemsList);
-      formData.append('total', total);
-      formData.append('message', message);
-      formData.append('_to', 'moderndecor.office@gmail.bg');
-      formData.append('_subject', `Нова поръчка от клиентски номер: ${clientNumber}`);
-      formData.append('_template', 'table');
-      formData.append('_captcha', 'false'); // Изключване на капча за по-бързо изпращане
-      
-      // Изпращане чрез FormSubmit
-      fetch('https://formsubmit.co/ajax/moderndecor.office@gmail.bg', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("FormSubmit success:", data);
-        // Успешно изпратена поръчка
+      // Изпращане: при зададен Web3Forms ключ – чрез Web3Forms (без активация); иначе – FormSubmit
+      function onSendSuccess() {
         document.getElementById("orderFormContainer").style.display = "none";
         document.getElementById("orderSuccess").classList.add("show");
-        
-        // Възстановяване на бутона (в случай че потребителят отвори формата отново)
         submitBtn.disabled = false;
         submitBtn.textContent = "Изпрати поръчка";
-        
-        // Пълно нулиране след 3 секунди
-        setTimeout(() => {
-          // Изчистване на кошницата (без потвърждение)
+        setTimeout(function() {
           clearCart(true);
-          // Затваряне на модала
           closeOrderModal();
-          // Затваряне на кошницата (ако е отворена)
-          const cartSidebar = document.getElementById("cartSidebar");
-          if (cartSidebar && cartSidebar.classList.contains("open")) {
-            toggleCart();
-          }
+          var cartSidebar = document.getElementById("cartSidebar");
+          if (cartSidebar && cartSidebar.classList.contains("open")) toggleCart();
         }, 3000);
-      })
-      .catch(error => {
-        // Грешка при изпращане - показване на детайли и алтернатива
-        console.error("FormSubmit error:", error);
-        console.error("Error details:", {
-          message: error.message,
-          stack: error.stack
-        });
-        
-        // Показване на алтернативен метод (mailto)
-        const mailtoSubject = encodeURIComponent(`Нова поръчка от клиентски номер: ${clientNumber}`);
-        const mailtoBody = encodeURIComponent(message);
-        const mailtoLink = `mailto:moderndecor.office@gmail.bg?subject=${mailtoSubject}&body=${mailtoBody}`;
-        
-        const useMailto = confirm(
-          "Възникна грешка при автоматично изпращане на поръчката.\n\n" +
-          "Искате ли да отворите вашия имейл клиент за ръчно изпращане?\n\n" +
-          "(Ако не, поръчката няма да бъде изпратена)"
-        );
-        
-        if (useMailto) {
+      }
+      function onSendError(err) {
+        console.error("Send error:", err);
+        var mailtoLink = "mailto:moderndecor.office@gmail.bg?subject=" + encodeURIComponent("Нова поръчка: " + clientNumber) + "&body=" + encodeURIComponent(message);
+        if (confirm("Изпращането не успя. Искате ли да отворите пощата за ръчно изпращане?")) {
           window.location.href = mailtoLink;
-          // След това все пак показваме успешно съобщение
-          document.getElementById("orderFormContainer").style.display = "none";
-          document.getElementById("orderSuccess").classList.add("show");
-          setTimeout(() => {
-            clearCart(true);
-            closeOrderModal();
-            const cartSidebar = document.getElementById("cartSidebar");
-            if (cartSidebar && cartSidebar.classList.contains("open")) {
-              toggleCart();
-            }
-          }, 3000);
+          onSendSuccess();
         } else {
           submitBtn.disabled = false;
           submitBtn.textContent = "Изпрати поръчка";
         }
-      });
+      }
+      
+      if (WEB3FORMS_ACCESS_KEY) {
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: "Нова поръчка от клиентски номер: " + clientNumber,
+            clientNumber: clientNumber,
+            address: address,
+            notes: notes,
+            items: itemsList,
+            total: total,
+            message: message
+          })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.success) onSendSuccess();
+          else onSendError(new Error(data.message || "Web3Forms error"));
+        })
+        .catch(onSendError);
+      } else {
+        var formData = new FormData();
+        formData.append("clientNumber", clientNumber);
+        formData.append("address", address);
+        formData.append("notes", notes);
+        formData.append("items", itemsList);
+        formData.append("total", total);
+        formData.append("message", message);
+        formData.append("_to", "moderndecor.office@gmail.bg");
+        formData.append("_subject", "Нова поръчка от клиентски номер: " + clientNumber);
+        formData.append("_template", "table");
+        formData.append("_captcha", "false");
+        fetch("https://formsubmit.co/ajax/moderndecor.office@gmail.bg", {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        })
+        .then(function(response) {
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          return response.json();
+        })
+        .then(function(data) {
+          onSendSuccess();
+        })
+        .catch(onSendError);
+      }
     }
     
     const users = { "distributor": "12345", "distributor1": "123456" };
