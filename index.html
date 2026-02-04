@@ -4546,7 +4546,8 @@ ${itemsList}
     function calculatePerde() {
       const widthIn = parseFloat(document.getElementById("perde-width").value);
       const heightIn = parseFloat(document.getElementById("perde-height").value);
-      const seriesKey = document.getElementById("perde-series").value;
+      const seriesKeyRaw = document.getElementById("perde-series").value;
+      const seriesKey = (seriesKeyRaw || "").toLowerCase().replace(/\s+/g, "-").trim();
       const control = document.getElementById("perde-control").value;
       const shapeType = document.querySelector("input[name='perde-shape']:checked");
       const nonStandard = shapeType && shapeType.value === "skosheni";
