@@ -3173,13 +3173,7 @@ ${itemsList}
         fetch('http://127.0.0.1:7242/ingest/537fa1da-93c3-4ca3-9276-a16a3540c67b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'calculateMini',message:'Mini fabric lookup',data:{fabric:raw,fabricLength:raw?raw.length:0,hasKey:hasKey,kType:typeof kVal,keysSample:keysSample},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'H1-H2'})}).catch(function(){});
       })();
       // #endregion
-      let k;
-      if (miniFabricCoeffByColor[fabric]) {
-        k = miniFabricCoeffByColor[fabric][color];
-        if (k == null) k = miniFabricCoeffByColor[fabric].white;
-      } else {
-        k = miniFabricCoeff[fabric];
-      }
+      let k = miniFabricCoeff[fabric];
       if (k == null || k === undefined) { res.style.display = "block"; res.style.background = "#fadbd8"; res.style.color = "#c0392b"; res.innerHTML = "Невалиден плат."; return; }
       const final = base * k;
       const platName = fabric;
@@ -3237,7 +3231,6 @@ ${itemsList}
       if (!base) { res.style.display = "block"; res.style.background = "#fadbd8"; res.style.color = "#c0392b"; res.innerHTML = "Грешка в таблицата."; return; }
       let k = dnFabricCoeff[fabric];
       if (!k) { res.style.display = "block"; res.style.background = "#fadbd8"; res.style.color = "#c0392b"; res.innerHTML = "Невалиден плат."; return; }
-      if (color === 'brown') k *= 1.05;
       const final = base * k;
       const platName = fabric;
       res.style.display = "block";
